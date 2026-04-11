@@ -1,8 +1,15 @@
 require "test_helper"
 
 class TransactionsControllerTest < ActionDispatch::IntegrationTest
-  test "should get create" do
-    get transactions_create_url
-    assert_response :success
+  test "creates a transaction" do
+    post transactions_url, params: {
+      transaction: {
+        from_account_id: accounts(:alice).id,
+        to_account_id: accounts(:bob).id,
+        amount: 25.00
+      }
+    }
+
+    assert_response :created
   end
 end

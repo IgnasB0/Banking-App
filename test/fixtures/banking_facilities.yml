@@ -1,0 +1,4 @@
+# api_key_digest is SHA256 of "test_api_key"
+atm_one:
+  name: ATM Branch One
+  api_key_digest: 5dec7e1c36e8ec7f526cfa8ff6dc788daad76f6dd34467662eb47990dca6b55d
