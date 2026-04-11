@@ -1,16 +1,16 @@
 class TransactionsController < ApplicationController
   def create
-    @transaction = Transaction.new(transaction_params)
-    if @transaction.save
-      render json: @transaction, status: :created
+    result = CreateTransaction.call(transaction_params: transaction_params)
+    if result.success?
+      render json: result.transaction, status: :created
     else
-      render json: { errors: @transaction.errors }, status: :unprocessable_entity
+      render json: { errors: result.errors }, status: :unprocessable_entity
     end
   end
 
   private
 
   def transaction_params
-    params.expect(transaction: [ :from_account_id, :to_account_id, :amount ])
+    params.expect(transaction: %i[from_account_id to_account_id amount])
   end
 end
