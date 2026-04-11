@@ -1,0 +1,39 @@
+# Ignore bundler config
+/.bundle
+
+# Ignore all environment files
+/.env*
+
+# Ignore all logfiles and tempfiles
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Ignore storage
+/storage/*
+!/storage/.keep
+/tmp/storage/*
+!/tmp/storage/.keep
+
+# Ignore bootsnap cache
+/tmp/cache/bootsnap*
+
+# Ignore uploaded files in development
+/public/assets
+
+# Ignore master key
+/config/master.key
+/config/credentials/*.key
+
+# macOS
+.DS_Store
+
+# Editor files
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Test coverage
+/coverage/
