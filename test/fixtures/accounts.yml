@@ -1,9 +1,11 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+alice:
+  first_name: Alice
+  last_name: Smith
+  country_code: GB
+  iban: GB12TRMG12345678901234
 
-one:
-  first_name: MyString
-  last_name: MyString
-
-two:
-  first_name: MyString
-  last_name: MyString
+bob:
+  first_name: Bob
+  last_name: Jones
+  country_code: DE
+  iban: DE56382554801203430800
