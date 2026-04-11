@@ -1,0 +1,2 @@
+class BankingFacility < ApplicationRecord
+end
