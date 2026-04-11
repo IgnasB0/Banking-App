@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Accounts — Banking App</title>
+  <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+  <nav>
+    <a href="/" class="logo">Banking App</a>
+    <a href="/">Accounts</a>
+    <a href="/accounts/new.html">New Account</a>
+    <a href="/transactions/new.html">Transfer</a>
+  </nav>
+  <main>
+    <div class="row">
+      <h1>Accounts</h1>
+      <a href="/accounts/new.html" class="btn btn-primary">+ New Account</a>
+    </div>
+    <div class="card">
+      <div id="accounts-table"><div class="loading">Loading accounts…</div></div>
+    </div>
+  </main>
+  <script type="module" src="/js/accounts.js"></script>
+</body>
+</html>
