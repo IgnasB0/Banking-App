@@ -1,6 +1,4 @@
 class TransactionsController < ApplicationController
-  skip_forgery_protection
-
   def create
     @transaction = Transaction.new(transaction_params)
     if @transaction.save

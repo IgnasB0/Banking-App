@@ -1,5 +1,8 @@
 class AccountsController < ApplicationController
-  skip_forgery_protection
+  def index
+    accounts = Account.order(created_at: :desc)
+    render json: accounts
+  end
 
   def show
     account = Account.find(params[:id])
