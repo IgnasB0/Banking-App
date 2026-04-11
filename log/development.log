@@ -1081,3 +1081,233 @@ Processing by AccountsController#show as */*
 Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 1.1ms (5 queries, 0 cached) | GC: 0.0ms)
 
 
+Started GET "/deposits" for 127.0.0.1 at 2026-04-11 16:51:02 +0300
+  
+LoadError (cannot load such file -- /Users/ignasbujevicius/Documents/ruby/transaction_manager/config/routes.rb):
+  
+railties (8.1.3) lib/rails/application/routes_reloader.rb:63:in 'Kernel#load'
+railties (8.1.3) lib/rails/application/routes_reloader.rb:63:in 'block in Rails::Application::RoutesReloader#load_paths'
+railties (8.1.3) lib/rails/application/routes_reloader.rb:63:in 'Array#each'
+railties (8.1.3) lib/rails/application/routes_reloader.rb:63:in 'Rails::Application::RoutesReloader#load_paths'
+railties (8.1.3) lib/rails/application/routes_reloader.rb:24:in 'Rails::Application::RoutesReloader#reload!'
+railties (8.1.3) lib/rails/application/routes_reloader.rb:51:in 'block in Rails::Application::RoutesReloader#updater'
+activesupport (8.1.3) lib/active_support/file_update_checker.rb:88:in 'ActiveSupport::FileUpdateChecker#execute'
+railties (8.1.3) lib/rails/application/routes_reloader.rb:33:in 'Rails::Application::RoutesReloader#execute'
+railties (8.1.3) lib/rails/application/finisher.rb:175:in 'block (2 levels) in <module:Finisher>'
+activesupport (8.1.3) lib/active_support/callbacks.rb:407:in 'BasicObject#instance_exec'
+activesupport (8.1.3) lib/active_support/callbacks.rb:407:in 'block in ActiveSupport::Callbacks::CallTemplate::InstanceExec0#make_lambda'
+activesupport (8.1.3) lib/active_support/callbacks.rb:179:in 'block in ActiveSupport::Callbacks::Filters::Before#call'
+activesupport (8.1.3) lib/active_support/callbacks.rb:669:in 'block in ActiveSupport::Callbacks::CallbackChain::DefaultTerminator#call'
+activesupport (8.1.3) lib/active_support/callbacks.rb:668:in 'Kernel#catch'
+activesupport (8.1.3) lib/active_support/callbacks.rb:668:in 'ActiveSupport::Callbacks::CallbackChain::DefaultTerminator#call'
+activesupport (8.1.3) lib/active_support/callbacks.rb:180:in 'ActiveSupport::Callbacks::Filters::Before#call'
+activesupport (8.1.3) lib/active_support/callbacks.rb:560:in 'block in ActiveSupport::Callbacks::CallbackSequence#invoke_before'
+activesupport (8.1.3) lib/active_support/callbacks.rb:560:in 'Array#each'
+activesupport (8.1.3) lib/active_support/callbacks.rb:560:in 'ActiveSupport::Callbacks::CallbackSequence#invoke_before'
+activesupport (8.1.3) lib/active_support/callbacks.rb:109:in 'ActiveSupport::Callbacks#run_callbacks'
+activesupport (8.1.3) lib/active_support/execution_wrapper.rb:128:in 'ActiveSupport::ExecutionWrapper#run'
+activesupport (8.1.3) lib/active_support/execution_wrapper.rb:124:in 'ActiveSupport::ExecutionWrapper#run!'
+activesupport (8.1.3) lib/active_support/reloader.rb:122:in 'ActiveSupport::Reloader#run!'
+activesupport (8.1.3) lib/active_support/execution_wrapper.rb:77:in 'block in ActiveSupport::ExecutionWrapper.run!'
+<internal:kernel>:91:in 'Kernel#tap'
+activesupport (8.1.3) lib/active_support/execution_wrapper.rb:74:in 'ActiveSupport::ExecutionWrapper.run!'
+activesupport (8.1.3) lib/active_support/reloader.rb:64:in 'ActiveSupport::Reloader.run!'
+actionpack (8.1.3) lib/action_dispatch/middleware/executor.rb:14:in 'ActionDispatch::Executor#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+web-console (4.3.0) lib/web_console/middleware.rb:132:in 'WebConsole::Middleware#call_app'
+web-console (4.3.0) lib/web_console/middleware.rb:28:in 'block in WebConsole::Middleware#call'
+web-console (4.3.0) lib/web_console/middleware.rb:17:in 'Kernel#catch'
+web-console (4.3.0) lib/web_console/middleware.rb:17:in 'WebConsole::Middleware#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.1.3) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.1.3) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+propshaft (1.3.1) lib/propshaft/quiet_assets.rb:11:in 'Propshaft::QuietAssets#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/remote_ip.rb:98:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.2.6) lib/rack/method_override.rb:28:in 'Rack::MethodOverride#call'
+rack (3.2.6) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+activesupport (8.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:30:in 'ActiveSupport::Cache::Strategy::LocalCache::Middleware#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.1.3) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/executor.rb:20:in 'ActionDispatch::Executor#call'
+propshaft (1.3.1) lib/propshaft/server.rb:37:in 'Propshaft::Server#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.2.6) lib/rack/sendfile.rb:131:in 'Rack::Sendfile#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+railties (8.1.3) lib/rails/engine.rb:534:in 'Rails::Engine#call'
+puma (8.0.0) lib/puma/configuration.rb:305:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (8.0.0) lib/puma/response.rb:79:in 'block in Puma::Response#handle_request'
+puma (8.0.0) lib/puma/thread_pool.rb:434:in 'Puma::ThreadPool#with_force_shutdown'
+puma (8.0.0) lib/puma/response.rb:78:in 'Puma::Response#handle_request'
+puma (8.0.0) lib/puma/server.rb:508:in 'Puma::Server#process_client'
+puma (8.0.0) lib/puma/server.rb:263:in 'block in Puma::Server#run'
+puma (8.0.0) lib/puma/thread_pool.rb:246:in 'block in Puma::ThreadPool#spawn_thread'
+Started POST "/deposits" for 127.0.0.1 at 2026-04-11 16:51:19 +0300
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY) /*application='TransactionManager'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='TransactionManager'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TransactionManager'*/[0m
+  
+ActionController::RoutingError (No route matches [POST] "/deposits"):
+  
+Started POST "/deposits" for 127.0.0.1 at 2026-04-11 16:52:46 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='TransactionManager'*/[0m
+Processing by DepositsController#create as */*
+  Parameters: {"banking_facility_id" => 1, "account_id" => 5, "amount" => 300, "deposit" => {"banking_facility_id" => 1, "account_id" => 5, "amount" => 300}}
+  [1m[36mBankingFacility Load (0.1ms)[0m  [1m[34mSELECT "banking_facilities".* FROM "banking_facilities" WHERE "banking_facilities"."api_key_digest" = '61d85573c46bd495c9d744ae910f4acd85b9c53aed46984b8e3b9c78205ab05a' LIMIT 1 /*action='create',application='TransactionManager',controller='deposits'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'block in ApplicationController#authenticate_banking_facility'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='TransactionManager',controller='deposits'*/[0m
+  ↳ app/interactors/create_deposit.rb:11:in 'CreateDeposit#call'
+  [1m[36mBankingFacility Load (0.7ms)[0m  [1m[34mSELECT "banking_facilities".* FROM "banking_facilities" WHERE "banking_facilities"."id" = 1 LIMIT 1 /*action='create',application='TransactionManager',controller='deposits'*/[0m
+  ↳ app/interactors/create_deposit.rb:11:in 'CreateDeposit#call'
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = 5 LIMIT 1 /*action='create',application='TransactionManager',controller='deposits'*/[0m
+  ↳ app/interactors/create_deposit.rb:11:in 'CreateDeposit#call'
+  [1m[36mDeposit Create (0.3ms)[0m  [1m[32mINSERT INTO "deposits" ("banking_facility_id", "account_id", "amount", "created_at", "updated_at") VALUES (1, 5, 300.0, '2026-04-11 13:52:46.469194', '2026-04-11 13:52:46.469194') RETURNING "id" /*action='create',application='TransactionManager',controller='deposits'*/[0m
+  ↳ app/interactors/create_deposit.rb:11:in 'CreateDeposit#call'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='TransactionManager',controller='deposits'*/[0m
+  ↳ app/interactors/create_deposit.rb:11:in 'CreateDeposit#call'
+Completed 201 Created in 27ms (Views: 0.4ms | ActiveRecord: 3.7ms (4 queries, 0 cached) | GC: 0.1ms)
+
+
+Started POST "/deposits" for 127.0.0.1 at 2026-04-11 16:52:52 +0300
+Processing by DepositsController#create as */*
+  Parameters: {"banking_facility_id" => 1, "account_id" => 5, "amount" => nil, "deposit" => {"banking_facility_id" => 1, "account_id" => 5, "amount" => nil}}
+  [1m[36mBankingFacility Load (0.1ms)[0m  [1m[34mSELECT "banking_facilities".* FROM "banking_facilities" WHERE "banking_facilities"."api_key_digest" = '61d85573c46bd495c9d744ae910f4acd85b9c53aed46984b8e3b9c78205ab05a' LIMIT 1 /*action='create',application='TransactionManager',controller='deposits'*/[0m
+  ↳ app/controllers/application_controller.rb:13:in 'block in ApplicationController#authenticate_banking_facility'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='TransactionManager',controller='deposits'*/[0m
+  ↳ app/interactors/create_deposit.rb:11:in 'CreateDeposit#call'
+  [1m[36mBankingFacility Load (1.7ms)[0m  [1m[34mSELECT "banking_facilities".* FROM "banking_facilities" WHERE "banking_facilities"."id" = 1 LIMIT 1 /*action='create',application='TransactionManager',controller='deposits'*/[0m
+  ↳ app/interactors/create_deposit.rb:11:in 'CreateDeposit#call'
+  [1m[36mAccount Load (0.1ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = 5 LIMIT 1 /*action='create',application='TransactionManager',controller='deposits'*/[0m
+  ↳ app/interactors/create_deposit.rb:11:in 'CreateDeposit#call'
+  [1m[36mDeposit Create (0.1ms)[0m  [1m[32mINSERT INTO "deposits" ("banking_facility_id", "account_id", "amount", "created_at", "updated_at") VALUES (1, 5, NULL, '2026-04-11 13:52:52.507546', '2026-04-11 13:52:52.507546') RETURNING "id" /*action='create',application='TransactionManager',controller='deposits'*/[0m
+  ↳ app/interactors/create_deposit.rb:11:in 'CreateDeposit#call'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='TransactionManager',controller='deposits'*/[0m
+  ↳ app/interactors/create_deposit.rb:11:in 'CreateDeposit#call'
+Completed 201 Created in 7ms (Views: 0.1ms | ActiveRecord: 2.2ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/accounts/5" for 127.0.0.1 at 2026-04-11 16:53:05 +0300
+Processing by AccountsController#show as */*
+  Parameters: {"banking_facility_id" => 1, "account_id" => 5, "amount" => nil, "id" => "5", "account" => {}}
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = 5 LIMIT 1 /*action='show',application='TransactionManager',controller='accounts'*/[0m
+  ↳ app/controllers/accounts_controller.rb:5:in 'AccountsController#show'
+  [1m[36mDeposit Sum (0.3ms)[0m  [1m[34mSELECT SUM("deposits"."amount") FROM "deposits" WHERE "deposits"."account_id" = 5 /*action='show',application='TransactionManager',controller='accounts'*/[0m
+  ↳ app/interactors/calculate_account_balance.rb:7:in 'CalculateAccountBalance#call'
+  [1m[36mWithdrawal Sum (0.2ms)[0m  [1m[34mSELECT SUM("withdrawals"."amount") FROM "withdrawals" WHERE "withdrawals"."account_id" = 5 /*action='show',application='TransactionManager',controller='accounts'*/[0m
+  ↳ app/interactors/calculate_account_balance.rb:8:in 'CalculateAccountBalance#call'
+  [1m[36mTransaction Sum (0.3ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."to_account_id" = 5 /*action='show',application='TransactionManager',controller='accounts'*/[0m
+  ↳ app/interactors/calculate_account_balance.rb:9:in 'CalculateAccountBalance#call'
+  [1m[36mTransaction Sum (0.1ms)[0m  [1m[34mSELECT SUM("transactions"."amount") FROM "transactions" WHERE "transactions"."from_account_id" = 5 /*action='show',application='TransactionManager',controller='accounts'*/[0m
+  ↳ app/interactors/calculate_account_balance.rb:10:in 'CalculateAccountBalance#call'
+Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 1.6ms (5 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/deposits" for 127.0.0.1 at 2026-04-11 16:53:46 +0300
+Processing by DepositsController#create as */*
+  Parameters: {"banking_facility_id" => 1, "account_id" => 5, "amount" => 2, "deposit" => {"banking_facility_id" => 1, "account_id" => 5, "amount" => 2}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Content in 1ms (ActiveRecord: 0.9ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+  
+actionpack (8.1.3) lib/action_controller/metal/request_forgery_protection.rb:321:in 'ActionController::RequestForgeryProtection::ProtectionMethods::Exception#handle_unverified_request'
+actionpack (8.1.3) lib/action_controller/metal/request_forgery_protection.rb:415:in 'ActionController::RequestForgeryProtection#handle_unverified_request'
+actionpack (8.1.3) lib/action_controller/metal/request_forgery_protection.rb:404:in 'ActionController::RequestForgeryProtection#verify_authenticity_token'
+activesupport (8.1.3) lib/active_support/callbacks.rb:362:in 'block in ActiveSupport::Callbacks::CallTemplate::MethodCall#make_lambda'
+activesupport (8.1.3) lib/active_support/callbacks.rb:179:in 'block in ActiveSupport::Callbacks::Filters::Before#call'
+actionpack (8.1.3) lib/abstract_controller/callbacks.rb:36:in 'block (2 levels) in <module:Callbacks>'
+activesupport (8.1.3) lib/active_support/callbacks.rb:180:in 'ActiveSupport::Callbacks::Filters::Before#call'
+activesupport (8.1.3) lib/active_support/callbacks.rb:560:in 'block in ActiveSupport::Callbacks::CallbackSequence#invoke_before'
+activesupport (8.1.3) lib/active_support/callbacks.rb:560:in 'Array#each'
+activesupport (8.1.3) lib/active_support/callbacks.rb:560:in 'ActiveSupport::Callbacks::CallbackSequence#invoke_before'
+activesupport (8.1.3) lib/active_support/callbacks.rb:119:in 'block in ActiveSupport::Callbacks#run_callbacks'
+activesupport (8.1.3) lib/active_support/callbacks.rb:141:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.1.3) lib/abstract_controller/callbacks.rb:266:in 'AbstractController::Callbacks#process_action'
+actionpack (8.1.3) lib/action_controller/metal/rescue.rb:36:in 'ActionController::Rescue#process_action'
+actionpack (8.1.3) lib/action_controller/metal/instrumentation.rb:76:in 'block in ActionController::Instrumentation#process_action'
+activesupport (8.1.3) lib/active_support/notifications.rb:210:in 'block in ActiveSupport::Notifications.instrument'
+activesupport (8.1.3) lib/active_support/notifications/instrumenter.rb:58:in 'ActiveSupport::Notifications::Instrumenter#instrument'
+activesupport (8.1.3) lib/active_support/notifications.rb:210:in 'ActiveSupport::Notifications.instrument'
+actionpack (8.1.3) lib/action_controller/metal/instrumentation.rb:75:in 'ActionController::Instrumentation#process_action'
+actionpack (8.1.3) lib/action_controller/metal/params_wrapper.rb:259:in 'ActionController::ParamsWrapper#process_action'
+activerecord (8.1.3) lib/active_record/railties/controller_runtime.rb:39:in 'ActiveRecord::Railties::ControllerRuntime#process_action'
+actionpack (8.1.3) lib/abstract_controller/base.rb:154:in 'AbstractController::Base#process'
+actionview (8.1.3) lib/action_view/rendering.rb:40:in 'ActionView::Rendering#process'
+actionpack (8.1.3) lib/action_controller/metal.rb:252:in 'ActionController::Metal#dispatch'
+actionpack (8.1.3) lib/action_controller/metal.rb:335:in 'ActionController::Metal.dispatch'
+actionpack (8.1.3) lib/action_dispatch/routing/route_set.rb:65:in 'ActionDispatch::Routing::RouteSet::Dispatcher#dispatch'
+actionpack (8.1.3) lib/action_dispatch/routing/route_set.rb:50:in 'ActionDispatch::Routing::RouteSet::Dispatcher#serve'
+actionpack (8.1.3) lib/action_dispatch/journey/router.rb:35:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.1.3) lib/action_dispatch/journey/router.rb:86:in 'block in ActionDispatch::Journey::Router#recognize'
+actionpack (8.1.3) lib/action_dispatch/journey/router.rb:66:in 'Array#each'
+actionpack (8.1.3) lib/action_dispatch/journey/router.rb:66:in 'ActionDispatch::Journey::Router#recognize'
+actionpack (8.1.3) lib/action_dispatch/journey/router.rb:31:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.1.3) lib/action_dispatch/routing/route_set.rb:906:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.1.3) lib/rails/engine/lazy_route_set.rb:60:in 'Rails::Engine::LazyRouteSet#call'
+rack (3.2.6) lib/rack/tempfile_reaper.rb:20:in 'Rack::TempfileReaper#call'
+rack (3.2.6) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.2.6) lib/rack/conditional_get.rb:44:in 'Rack::ConditionalGet#call'
+rack (3.2.6) lib/rack/head.rb:15:in 'Rack::Head#call'
+actionpack (8.1.3) lib/action_dispatch/http/content_security_policy.rb:38:in 'ActionDispatch::ContentSecurityPolicy::Middleware#call'
+rack-session (2.1.2) lib/rack/session/abstract/id.rb:274:in 'Rack::Session::Abstract::Persisted#context'
+rack-session (2.1.2) lib/rack/session/abstract/id.rb:268:in 'Rack::Session::Abstract::Persisted#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/cookies.rb:708:in 'ActionDispatch::Cookies#call'
+activerecord (8.1.3) lib/active_record/migration.rb:671:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.1.3) lib/active_support/callbacks.rb:101:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.1.3) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/executor.rb:20:in 'ActionDispatch::Executor#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+web-console (4.3.0) lib/web_console/middleware.rb:132:in 'WebConsole::Middleware#call_app'
+web-console (4.3.0) lib/web_console/middleware.rb:28:in 'block in WebConsole::Middleware#call'
+web-console (4.3.0) lib/web_console/middleware.rb:17:in 'Kernel#catch'
+web-console (4.3.0) lib/web_console/middleware.rb:17:in 'WebConsole::Middleware#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.1.3) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.1.3) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+propshaft (1.3.1) lib/propshaft/quiet_assets.rb:11:in 'Propshaft::QuietAssets#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/remote_ip.rb:98:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.2.6) lib/rack/method_override.rb:28:in 'Rack::MethodOverride#call'
+rack (3.2.6) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+activesupport (8.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:30:in 'ActiveSupport::Cache::Strategy::LocalCache::Middleware#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.1.3) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/executor.rb:20:in 'ActionDispatch::Executor#call'
+propshaft (1.3.1) lib/propshaft/server.rb:37:in 'Propshaft::Server#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.2.6) lib/rack/sendfile.rb:131:in 'Rack::Sendfile#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+railties (8.1.3) lib/rails/engine.rb:534:in 'Rails::Engine#call'
+puma (8.0.0) lib/puma/configuration.rb:305:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (8.0.0) lib/puma/response.rb:79:in 'block in Puma::Response#handle_request'
+puma (8.0.0) lib/puma/thread_pool.rb:434:in 'Puma::ThreadPool#with_force_shutdown'
+puma (8.0.0) lib/puma/response.rb:78:in 'Puma::Response#handle_request'
+puma (8.0.0) lib/puma/server.rb:508:in 'Puma::Server#process_client'
+puma (8.0.0) lib/puma/server.rb:263:in 'block in Puma::Server#run'
+puma (8.0.0) lib/puma/thread_pool.rb:246:in 'block in Puma::ThreadPool#spawn_thread'
+Started POST "/deposits" for 127.0.0.1 at 2026-04-11 16:56:28 +0300
+Processing by DepositsController#create as */*
+  Parameters: {"banking_facility_id" => 1, "account_id" => 5, "amount" => 2, "deposit" => {"banking_facility_id" => 1, "account_id" => 5, "amount" => 2}}
+Can't verify CSRF token authenticity.
+  [1m[36mBankingFacility Load (0.2ms)[0m  [1m[34mSELECT "banking_facilities".* FROM "banking_facilities" WHERE "banking_facilities"."api_key_digest" = '61d85573c46bd495c9d744ae910f4acd85b9c53aed46984b8e3b9c78205ab05a' LIMIT 1 /*action='create',application='TransactionManager',controller='deposits'*/[0m
+  ↳ app/controllers/application_controller.rb:15:in 'block in ApplicationController#authenticate_banking_facility'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='TransactionManager',controller='deposits'*/[0m
+  ↳ app/interactors/create_deposit.rb:11:in 'CreateDeposit#call'
+  [1m[36mBankingFacility Load (0.8ms)[0m  [1m[34mSELECT "banking_facilities".* FROM "banking_facilities" WHERE "banking_facilities"."id" = 1 LIMIT 1 /*action='create',application='TransactionManager',controller='deposits'*/[0m
+  ↳ app/interactors/create_deposit.rb:11:in 'CreateDeposit#call'
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = 5 LIMIT 1 /*action='create',application='TransactionManager',controller='deposits'*/[0m
+  ↳ app/interactors/create_deposit.rb:11:in 'CreateDeposit#call'
+  [1m[36mDeposit Create (0.3ms)[0m  [1m[32mINSERT INTO "deposits" ("banking_facility_id", "account_id", "amount", "created_at", "updated_at") VALUES (1, 5, 2.0, '2026-04-11 13:56:28.796835', '2026-04-11 13:56:28.796835') RETURNING "id" /*action='create',application='TransactionManager',controller='deposits'*/[0m
+  ↳ app/interactors/create_deposit.rb:11:in 'CreateDeposit#call'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='TransactionManager',controller='deposits'*/[0m
+  ↳ app/interactors/create_deposit.rb:11:in 'CreateDeposit#call'
+Completed 201 Created in 21ms (Views: 0.6ms | ActiveRecord: 8.4ms (4 queries, 0 cached) | GC: 0.0ms)
+
+

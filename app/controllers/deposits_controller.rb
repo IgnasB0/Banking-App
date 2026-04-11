@@ -1,5 +1,4 @@
 class DepositsController < ApplicationController
-  skip_forgery_protection
 
   before_action :authenticate_banking_facility
 
