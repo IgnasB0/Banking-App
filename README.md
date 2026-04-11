@@ -1,24 +1,7 @@
-# README
+# Banking application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+I created this application to show off my _ruby on rails_ development skills
 
-Things you may want to cover:
+It uses a SQLlite database
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Banking facility api key digest should be set manually in the database in order to be able to use withdrawals and deposits
