@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_11_112717) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_12_085902) do
   create_table "accounts", force: :cascade do |t|
     t.string "country_code"
     t.datetime "created_at", null: false
@@ -18,7 +18,9 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_11_112717) do
     t.string "iban"
     t.string "last_name"
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.index ["iban"], name: "index_accounts_on_iban", unique: true
+    t.index ["user_id"], name: "index_accounts_on_user_id"
   end
 
   create_table "banking_facilities", force: :cascade do |t|
@@ -38,6 +40,15 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_11_112717) do
     t.index ["banking_facility_id"], name: "index_deposits_on_banking_facility_id"
   end
 
+  create_table "sessions", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "ip_address"
+    t.datetime "updated_at", null: false
+    t.string "user_agent"
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_sessions_on_user_id"
+  end
+
   create_table "transactions", force: :cascade do |t|
     t.decimal "amount"
     t.datetime "created_at", null: false
@@ -46,6 +57,14 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_11_112717) do
     t.datetime "updated_at", null: false
     t.index ["from_account_id"], name: "index_transactions_on_from_account_id"
     t.index ["to_account_id"], name: "index_transactions_on_to_account_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "email_address", null: false
+    t.string "password_digest", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email_address"], name: "index_users_on_email_address", unique: true
   end
 
   create_table "withdrawals", force: :cascade do |t|
@@ -58,8 +77,10 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_11_112717) do
     t.index ["banking_facility_id"], name: "index_withdrawals_on_banking_facility_id"
   end
 
+  add_foreign_key "accounts", "users"
   add_foreign_key "deposits", "accounts"
   add_foreign_key "deposits", "banking_facilities"
+  add_foreign_key "sessions", "users"
   add_foreign_key "transactions", "accounts", column: "from_account_id"
   add_foreign_key "transactions", "accounts", column: "to_account_id"
   add_foreign_key "withdrawals", "accounts"
