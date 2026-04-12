@@ -7,6 +7,7 @@ class CreateAccount
 
   def call
     account = Account.new(context.account_params)
+    account.user = context.user
     account.iban = generate_iban
 
     if account.save
