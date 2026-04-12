@@ -22,8 +22,8 @@ async function load() {
         <select name="from_account_id" required>${options}</select>
       </div>
       <div class="form-group">
-        <label>To Account</label>
-        <select name="to_account_id" required>${options}</select>
+        <label>Recipient IBAN</label>
+        <input name="to_iban" type="text" required placeholder="e.g. GB29NWBK60161331926819" autocomplete="off">
       </div>
       <div class="form-group">
         <label>Amount</label>
@@ -37,11 +37,6 @@ async function load() {
     const form = e.target;
     const btn = form.querySelector('button');
 
-    if (form.from_account_id.value === form.to_account_id.value) {
-      showAlert(card, 'You cannot transfer money to the same account.');
-      return;
-    }
-
     btn.disabled = true;
     btn.textContent = 'Sending…';
 
@@ -49,7 +44,7 @@ async function load() {
       method: 'POST',
       body: JSON.stringify({ transaction: {
         from_account_id: form.from_account_id.value,
-        to_account_id: form.to_account_id.value,
+        to_iban: form.to_iban.value,
         amount: form.amount.value,
       }}),
     });
