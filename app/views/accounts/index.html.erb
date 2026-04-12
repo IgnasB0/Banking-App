@@ -1,0 +1,21 @@
+<% content_for :title, "Accounts" %>
+
+<div class="page-header">
+  <h1 class="page-title">Accounts</h1>
+  <% if @accounts.any? %>
+    <%= link_to "New Transfer", new_transaction_path, class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+<% if @accounts.empty? %>
+  <p class="empty-state">No accounts yet.</p>
+<% else %>
+  <div class="account-list">
+    <% @accounts.each do |account| %>
+      <div class="account-card">
+        <div class="account-name"><%= account.first_name %> <%= account.last_name %></div>
+        <div class="account-iban"><%= account.iban %></div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

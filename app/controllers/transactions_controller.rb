@@ -1,16 +1,23 @@
 class TransactionsController < ApplicationController
+  def new; end
+
   def create
-    result = CreateTransaction.call(transaction_params: transaction_params)
+    result = CreateTransaction.call(transaction_params)
     if result.success?
-      render json: result.transaction, status: :created
+      redirect_to accounts_path, notice: 'Transfer completed successfully.'
     else
-      render json: { errors: result.errors }, status: :unprocessable_entity
+      @error = result.errors
+      render :new, status: :unprocessable_entity
     end
   end
 
   private
 
   def transaction_params
-    params.expect(transaction: %i[from_account_id to_account_id amount])
+    {
+      from_account_id: params.dig(:transaction, :from_account_id),
+      to_iban: params.dig(:transaction, :to_iban),
+      amount: params.dig(:transaction, :amount)
+    }
   end
 end
