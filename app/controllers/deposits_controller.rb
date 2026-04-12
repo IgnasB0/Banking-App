@@ -1,5 +1,5 @@
 class DepositsController < ApplicationController
-
+  allow_unauthenticated_access
   before_action :authenticate_banking_facility
 
   def create
