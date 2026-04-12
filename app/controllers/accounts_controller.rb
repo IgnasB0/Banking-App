@@ -1,11 +1,14 @@
 class AccountsController < ApplicationController
   def index
-    accounts = Account.order(created_at: :desc)
-    render json: accounts
+    @accounts = Current.user.accounts.order(created_at: :desc)
+    respond_to do |format|
+      format.html
+      format.json { render json: @accounts }
+    end
   end
 
   def show
-    account = Account.find(params[:id])
+    account = Current.user.accounts.find(params[:id])
     balance_calculation = CalculateAccountBalance.call(account: account)
     render json: account.as_json.merge(balance: balance_calculation.balance)
   end
@@ -15,7 +18,7 @@ class AccountsController < ApplicationController
   end
 
   def create
-    result = CreateAccount.call(account_params: account_params)
+    result = CreateAccount.call(account_params: account_params, user: Current.user)
     if result.success?
       render json: result.account, status: :created
     else
