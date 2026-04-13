@@ -40,9 +40,9 @@ async function load() {
     btn.disabled = true;
     btn.textContent = 'Sending…';
 
-    const { ok, data: res } = await api('/transactions', {
+    const { ok, data: res } = await api('/transfers', {
       method: 'POST',
-      body: JSON.stringify({ transaction: {
+      body: JSON.stringify({ transfer: {
         from_account_id: form.from_account_id.value,
         to_iban: form.to_iban.value,
         amount: form.amount.value,

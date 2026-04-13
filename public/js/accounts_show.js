@@ -22,7 +22,7 @@ async function loadAccount() {
   main.innerHTML = `
     <div class="row">
       <a href="/" class="btn btn-ghost">← All Accounts</a>
-      <a href="/transactions/new.html?from=${id}" class="btn btn-primary">Send Money</a>
+      <a href="/transfers/new.html?from=${id}" class="btn btn-primary">Send Money</a>
     </div>
 
     <div class="card">

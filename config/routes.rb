@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   resource :session
-resources :deposits, only: [ :create ]
-  resources :withdrawals, only: [ :create ]
-  resources :transactions, only: [ :new, :create ]
-  resources :accounts, only: [ :index, :create, :show ]
+  resources :deposits, only: %i[create]
+  resources :withdrawals, only: %i[create]
+  resources :transfers, only: %i[new create]
+  resources :accounts, only: %i[index create show]
 
   root "accounts#index"
 

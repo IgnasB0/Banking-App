@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 # Transfers an amount from one account to another, looked up by IBAN.
-class CreateTransaction
+class CreateTransfer
   include Interactor
 
   def call
     from_account = find_sender
     to_account = find_recipient
     verify_balance(from_account)
-    save_transaction(from_account, to_account)
+    save_transfer(from_account, to_account)
   end
 
   private
@@ -30,16 +30,16 @@ class CreateTransaction
     context.fail!(errors: 'Insufficient balance') if balance < context.amount.to_d
   end
 
-  def save_transaction(from_account, to_account)
-    transaction = Transaction.new(
+  def save_transfer(from_account, to_account)
+    transfer = Transfer.new(
       from_account_id: from_account.id,
       to_account_id: to_account.id,
       amount: context.amount
     )
-    if transaction.save
-      context.transaction = transaction
+    if transfer.save
+      context.transfer = transfer
     else
-      context.fail!(errors: transaction.errors)
+      context.fail!(errors: transfer.errors)
     end
   end
 end
