@@ -11,6 +11,18 @@ class TransfersController < ApplicationController
     end
   end
 
+  def index
+    account_id = params[:account_id]
+    account = Current.user.accounts.find(params[:account_id])
+    if account
+      transfers = Transfer.where('from_account_id = ? OR to_account_id = ?', account_id, account_id)
+
+      render json: transfers, status: :ok
+    else
+      render status :not_found
+    end
+  end
+
   private
 
   def transfer_params
