@@ -5,22 +5,37 @@ body {
   background: #f0f4f8;
   color: #1a2332;
   min-height: 100vh;
+  font-size: 15px;
 }
 
+/* ── Nav ── */
 nav {
   background: #1a3a5c;
   padding: 0 2rem;
   display: flex;
   align-items: center;
   height: 60px;
-  gap: 2rem;
+  gap: 1.5rem;
 }
-nav .logo { color: white; font-size: 1.1rem; font-weight: 700; text-decoration: none; }
+nav .logo { color: white; font-size: 1.1rem; font-weight: 700; text-decoration: none; margin-right: auto; }
 nav a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.9rem; }
 nav a:hover { color: white; }
+.nav-user { color: rgba(255,255,255,0.85); font-size: 0.85rem; }
 
-main { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
+/* ── Main ── */
+main, .main { max-width: 960px; margin: 2rem auto; padding: 0 1.5rem; }
 
+/* ── Flash / Alerts ── */
+.flash, .alert {
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-size: 0.88rem;
+}
+.flash-alert, .alert-error   { background: #ffebee; color: #c62828; }
+.flash-notice, .alert-success { background: #e8f5e9; color: #2e7d32; }
+
+/* ── Cards ── */
 .card {
   background: white;
   border-radius: 8px;
@@ -29,29 +44,42 @@ main { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
   margin-bottom: 1.5rem;
 }
 
+/* ── Typography ── */
 h1 { font-size: 1.5rem; margin-bottom: 1.5rem; }
 h2 { font-size: 1.1rem; margin-bottom: 1rem; }
 
+/* ── Tables ── */
 table { width: 100%; border-collapse: collapse; }
 th { text-align: left; padding: 0.5rem 0.75rem; font-size: 0.75rem; text-transform: uppercase; color: #888; border-bottom: 2px solid #f0f0f0; }
 td { padding: 0.75rem; border-bottom: 1px solid #f5f5f5; font-size: 0.9rem; }
 tr:last-child td { border-bottom: none; }
 tr:hover td { background: #fafafa; }
 
-.form-group { margin-bottom: 1rem; }
-label { display: block; font-size: 0.82rem; font-weight: 600; color: #555; margin-bottom: 0.3rem; }
-input, select {
+/* ── Forms ── */
+.form-group { margin-bottom: 1rem; display: flex; flex-direction: column; gap: 0.3rem; }
+label { display: block; font-size: 0.82rem; font-weight: 600; color: #555; }
+input, select, .form-input {
   width: 100%;
   padding: 0.55rem 0.75rem;
   border: 1px solid #ddd;
   border-radius: 6px;
   font-size: 0.95rem;
   font-family: inherit;
+  color: #1a2332;
+  background: white;
 }
-input:focus, select:focus { outline: none; border-color: #1a3a5c; box-shadow: 0 0 0 2px rgba(26,58,92,0.1); }
+input:focus, select:focus, .form-input:focus {
+  outline: none;
+  border-color: #1a3a5c;
+  box-shadow: 0 0 0 2px rgba(26,58,92,0.1);
+}
+input::placeholder, .form-input::placeholder { color: #aaa; }
 
+/* ── Buttons ── */
 .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 0.55rem 1.1rem;
   border-radius: 6px;
   font-size: 0.88rem;
@@ -64,29 +92,56 @@ input:focus, select:focus { outline: none; border-color: #1a3a5c; box-shadow: 0 
 }
 .btn:hover { opacity: 0.88; }
 .btn:disabled { opacity: 0.5; cursor: not-allowed; }
-.btn-primary { background: #1a3a5c; color: white; }
-.btn-success { background: #2e7d32; color: white; }
-.btn-danger  { background: #c62828; color: white; }
-.btn-ghost   { background: none; color: #1a3a5c; padding: 0; font-weight: 600; border: none; cursor: pointer; font-size: inherit; font-family: inherit; }
+.btn-primary   { background: #1a3a5c; color: white; }
+.btn-secondary { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); }
+.btn-secondary:hover { opacity: 1; background: rgba(255,255,255,0.25); }
+.btn-success   { background: #2e7d32; color: white; }
+.btn-danger    { background: #c62828; color: white; }
+.btn-ghost     { background: none; color: #1a3a5c; padding: 0; font-weight: 600; border: none; cursor: pointer; font-size: inherit; font-family: inherit; }
 .btn-ghost:hover { text-decoration: underline; opacity: 1; }
+.btn-sm   { padding: 0.35rem 0.75rem; font-size: 0.82rem; }
+.btn-full { width: 100%; }
 
+/* ── Auth pages ── */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 4rem;
+}
+.auth-card {
+  background: white;
+  border-radius: 8px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+.auth-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 1.5rem; }
+.auth-form  { display: flex; flex-direction: column; gap: 1rem; }
+
+/* ── Page header ── */
+.page-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; }
+.page-title  { font-size: 1.5rem; font-weight: 700; margin-bottom: 0; }
+
+/* ── Account list ── */
+.account-list { display: flex; flex-direction: column; gap: 0.75rem; }
+.account-card { display: block; background: white; border-radius: 8px; padding: 1rem 1.25rem; box-shadow: 0 1px 3px rgba(0,0,0,0.06); text-decoration: none; color: inherit; cursor: pointer; transition: box-shadow 0.15s; }
+.account-card:hover { box-shadow: 0 3px 8px rgba(0,0,0,0.12); }
+.account-name { font-weight: 600; margin-bottom: 0.2rem; }
+.account-iban { font-family: monospace; font-size: 0.85rem; color: #555; }
+
+/* ── Misc ── */
 .balance-label  { font-size: 0.75rem; text-transform: uppercase; color: #888; margin-bottom: 0.2rem; }
 .balance-amount { font-size: 2rem; font-weight: 700; }
-
 .iban { font-family: monospace; font-size: 0.85rem; color: #555; background: #f5f5f5; padding: 0.25rem 0.5rem; border-radius: 4px; }
-
-.alert { padding: 0.75rem 1rem; border-radius: 6px; margin-bottom: 1rem; font-size: 0.88rem; }
-.alert-error   { background: #ffebee; color: #c62828; }
-.alert-success { background: #e8f5e9; color: #2e7d32; }
-
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
 @media (max-width: 600px) { .grid-2 { grid-template-columns: 1fr; } }
-
 .row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
-
-.text-green { color: #2e7d32; }
-.text-red   { color: #c62828; }
-.text-right { text-align: right; }
-
-.empty   { text-align: center; padding: 2rem; color: #aaa; font-size: 0.9rem; }
-.loading { text-align: center; padding: 3rem; color: #bbb; }
+.text-green  { color: #2e7d32; }
+.text-red    { color: #c62828; }
+.text-right  { text-align: right; }
+.empty, .empty-state { text-align: center; padding: 2rem; color: #aaa; font-size: 0.9rem; }
+.loading     { text-align: center; padding: 3rem; color: #bbb; }
+.link        { color: #1a3a5c; text-decoration: none; }
+.link:hover  { text-decoration: underline; }
