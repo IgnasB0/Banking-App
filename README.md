@@ -13,6 +13,3 @@ Withdrawals and deposits are only available through the api. API keys should be 
 Test user logins:
 *  email: iggy@ig.com
 *  password: Ignas
-
-*  email: test@test.com
-*  password: Test
