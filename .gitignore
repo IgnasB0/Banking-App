@@ -37,3 +37,6 @@
 
 # Test coverage
 /coverage/
+storage/development.sqlite3-shm
+storage/development.sqlite3-wal
+tmp/pids/server.pid
