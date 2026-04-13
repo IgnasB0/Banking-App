@@ -12,7 +12,12 @@
     <a href="/">Accounts</a>
     <a href="/accounts/new.html">New Account</a>
     <a href="/transfers/new.html">Transfer</a>
+    <button class="btn btn-secondary btn-sm" id="logout-btn">Sign out</button>
   </nav>
+  <script type="module">
+    import { logout } from '/js/api.js';
+    document.getElementById('logout-btn').addEventListener('click', logout);
+  </script>
   <main>
     <h1>Create Account</h1>
     <div class="card" style="max-width:440px">
