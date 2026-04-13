@@ -34,6 +34,8 @@ class CreateTransfer
     transfer = Transfer.new(
       from_account_id: from_account.id,
       to_account_id: to_account.id,
+      sender_iban: from_account.iban,
+      receiver_iban: to_account.iban,
       amount: context.amount
     )
     if transfer.save
