@@ -1,32 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Transaction Manager" %></title>
+    <title><%= content_for(:title) || "Banking App" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Transaction Manager">
-    <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= yield :head %>
-
     <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/icon.png">
-
-    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <link rel="stylesheet" href="/app.css">
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
     <% if authenticated? %>
-      <nav class="nav">
-        <span class="nav-brand">Transaction Manager</span>
-        <div class="nav-actions">
-          <span class="nav-user"><%= Current.user.email_address %></span>
-          <%= button_to "Sign out", session_path, method: :delete, class: "btn btn-secondary btn-sm" %>
-        </div>
+      <nav>
+        <a href="/" class="logo">Banking App</a>
+        <a href="/">Accounts</a>
+        <a href="/accounts/new.html">New Account</a>
+        <a href="/transfers/new.html">Transfer</a>
+        <span class="nav-user"><%= Current.user.email_address %></span>
+        <%= button_to "Sign out", session_path, method: :delete, class: "btn btn-secondary btn-sm" %>
       </nav>
     <% end %>
 
@@ -37,7 +30,7 @@
       <div class="flash flash-notice"><%= flash[:notice] %></div>
     <% end %>
 
-    <main class="main">
+    <main>
       <%= yield %>
     </main>
   </body>
