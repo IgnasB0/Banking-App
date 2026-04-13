@@ -12,10 +12,10 @@
 <% else %>
   <div class="account-list">
     <% @accounts.each do |account| %>
-      <div class="account-card">
+      <a href="/accounts/show.html?id=<%= account.id %>" class="account-card">
         <div class="account-name"><%= account.first_name %> <%= account.last_name %></div>
         <div class="account-iban"><%= account.iban %></div>
-      </div>
+      </a>
     <% end %>
   </div>
 <% end %>
