@@ -1,4 +1,4 @@
-import { api, fmt, showAlert } from '/js/api.js';
+import { api, fmt } from '/js/api.js';
 
 const id = new URLSearchParams(location.search).get('id');
 const main = document.getElementById('account-detail');
@@ -36,5 +36,51 @@ async function loadAccount() {
           <div class="balance-amount ${data.balance >= 0 ? 'text-green' : 'text-red'}">${fmt(data.balance)}</div>
         </div>
       </div>
-    </div>`;
+    </div>
+
+    <h2>Transfers</h2>
+    <div class="card" id="transfers-list"><div class="loading">Loading transfers…</div></div>`;
+
+  loadTransfers();
+}
+
+async function loadTransfers() {
+  const { ok, data } = await api(`/transfers.json?account_id=${id}`);
+  const container = document.getElementById('transfers-list');
+
+  if (!ok) {
+    container.innerHTML = '<div class="alert alert-error">Failed to load transfers.</div>';
+    return;
+  }
+
+  if (data.length === 0) {
+    container.innerHTML = '<div class="empty">No transfers yet.</div>';
+    return;
+  }
+
+  container.innerHTML = `
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>From</th>
+          <th>To</th>
+          <th class="text-right">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${data.map(t => {
+          const sent = String(t.from_account_id) === id;
+          return `
+          <tr>
+            <td>${new Date(t.created_at).toLocaleDateString()}</td>
+            <td><span class="iban">${t.sender_iban}</span></td>
+            <td><span class="iban">${t.receiver_iban}</span></td>
+            <td class="text-right ${sent ? 'text-red' : 'text-green'}">
+              ${sent ? '−' : '+'}${fmt(t.amount)}
+            </td>
+          </tr>`;
+        }).join('')}
+      </tbody>
+    </table>`;
 }
