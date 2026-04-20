@@ -1,0 +1,32 @@
+inherit_gem:
+  rubocop-rails-omakase: rubocop.yml
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'bin/**/*'
+    - 'db/schema.rb'
+    - 'db/queue_schema.rb'
+    - 'db/cache_schema.rb'
+    - 'db/cable_schema.rb'
+    - 'db/migrate/**/*'
+    - 'config.ru'
+    - 'node_modules/**/*'
+
+# Rails apps don't use class-level doc comments
+Style/Documentation:
+  Enabled: false
+
+# Frozen string literals are optional in Rails apps
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# Assignment in condition is idiomatic Rails (e.g. if user = User.find_by(...))
+Lint/AssignmentInCondition:
+  AllowSafeAssignment: true
+
+# db/seeds and config files can be longer
+Metrics/BlockLength:
+  Exclude:
+    - 'db/seeds.rb'
+    - 'config/**/*'

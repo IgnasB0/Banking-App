@@ -24,7 +24,7 @@ class CreateAccount
 
     begin
       rules = IBANTools::Conversion.send(:load_config, country_code)
-    rescue => e
+    rescue StandardError => e
       context.fail!(errors: e.message)
     end
 

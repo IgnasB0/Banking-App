@@ -4,7 +4,7 @@ class TransfersController < ApplicationController
   def create
     result = CreateTransfer.call(transfer_params)
     if result.success?
-      redirect_to accounts_path, notice: 'Transfer completed successfully.'
+      redirect_to accounts_path, notice: "Transfer completed successfully."
     else
       @error = result.errors
       render :new, status: :unprocessable_entity
