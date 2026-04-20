@@ -1,0 +1,306 @@
+openapi: 3.0.3
+info:
+  title: Banking App API
+  version: 1.0.0
+
+components:
+  securitySchemes:
+    sessionCookie:
+      type: apiKey
+      in: cookie
+      name: session_id
+      description: Signed session cookie set after POST /session
+    bearerToken:
+      type: http
+      scheme: bearer
+      description: Banking facility API key (for deposits and withdrawals)
+
+  schemas:
+    Account:
+      type: object
+      properties:
+        id:          { type: integer }
+        first_name:  { type: string }
+        last_name:   { type: string }
+        country_code: { type: string, example: GB }
+        iban:        { type: string, example: GB29NWBK60161331926819 }
+        user_id:     { type: integer }
+        created_at:  { type: string, format: date-time }
+        updated_at:  { type: string, format: date-time }
+
+    AccountWithBalance:
+      allOf:
+        - $ref: '#/components/schemas/Account'
+        - type: object
+          properties:
+            balance: { type: number, format: decimal }
+
+    Transfer:
+      type: object
+      properties:
+        id:            { type: integer }
+        from_account_id: { type: integer }
+        to_account_id:   { type: integer }
+        sender_iban:   { type: string }
+        receiver_iban: { type: string }
+        amount:        { type: number, format: decimal }
+        created_at:    { type: string, format: date-time }
+        updated_at:    { type: string, format: date-time }
+
+    Deposit:
+      type: object
+      properties:
+        id:                  { type: integer }
+        account_id:          { type: integer }
+        banking_facility_id: { type: integer }
+        amount:              { type: number, format: decimal }
+        created_at:          { type: string, format: date-time }
+        updated_at:          { type: string, format: date-time }
+
+    Withdrawal:
+      type: object
+      properties:
+        id:                  { type: integer }
+        account_id:          { type: integer }
+        banking_facility_id: { type: integer }
+        amount:              { type: number, format: decimal }
+        created_at:          { type: string, format: date-time }
+        updated_at:          { type: string, format: date-time }
+
+    Errors:
+      type: object
+      properties:
+        errors:
+          oneOf:
+            - type: string
+            - type: object
+
+paths:
+  # ── Authentication ──────────────────────────────────────────────────────────
+
+  /session:
+    post:
+      summary: Sign in
+      tags: [Authentication]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email_address, password]
+              properties:
+                email_address: { type: string, format: email }
+                password:      { type: string }
+      responses:
+        '302':
+          description: Redirect to accounts on success, back to /session/new on failure
+
+    delete:
+      summary: Sign out
+      tags: [Authentication]
+      security:
+        - sessionCookie: []
+      responses:
+        '303':
+          description: Redirect to /session/new
+
+  # ── Accounts ────────────────────────────────────────────────────────────────
+
+  /accounts.json:
+    get:
+      summary: List accounts for the current user
+      tags: [Accounts]
+      security:
+        - sessionCookie: []
+      responses:
+        '200':
+          description: Array of accounts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Account'
+        '401':
+          description: Not authenticated
+
+  /accounts:
+    post:
+      summary: Create a new account
+      tags: [Accounts]
+      security:
+        - sessionCookie: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [account]
+              properties:
+                account:
+                  type: object
+                  required: [first_name, last_name, country_code]
+                  properties:
+                    first_name:   { type: string }
+                    last_name:    { type: string }
+                    country_code: { type: string, minLength: 2, maxLength: 2, example: GB }
+      responses:
+        '201':
+          description: Account created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+        '422':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+
+  /accounts/{id}.json:
+    get:
+      summary: Get account with balance
+      tags: [Accounts]
+      security:
+        - sessionCookie: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Account with calculated balance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountWithBalance'
+        '404':
+          description: Account not found or not owned by current user
+
+  # ── Transfers ───────────────────────────────────────────────────────────────
+
+  /transfers.json:
+    get:
+      summary: List transfers for an account
+      tags: [Transfers]
+      security:
+        - sessionCookie: []
+      parameters:
+        - name: account_id
+          in: query
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Array of transfers involving the account
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Transfer'
+        '404':
+          description: Account not found or not owned by current user
+
+  /transfers:
+    post:
+      summary: Create a transfer between accounts
+      tags: [Transfers]
+      security:
+        - sessionCookie: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [transfer]
+              properties:
+                transfer:
+                  type: object
+                  required: [from_account_id, to_iban, amount]
+                  properties:
+                    from_account_id: { type: integer }
+                    to_iban:         { type: string, example: GB29NWBK60161331926819 }
+                    amount:          { type: number, format: decimal, minimum: 0.01 }
+      responses:
+        '302':
+          description: Redirect to accounts on success
+        '422':
+          description: Validation error (insufficient balance, account not found, etc.)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+
+  # ── Deposits ─────────────────────────────────────────────────────────────────
+
+  /deposits:
+    post:
+      summary: Deposit funds into an account
+      tags: [Deposits]
+      security:
+        - bearerToken: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [account_id, amount]
+              properties:
+                account_id: { type: integer }
+                amount:     { type: number, format: decimal, minimum: 0.01 }
+      responses:
+        '201':
+          description: Deposit created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Deposit'
+        '401':
+          description: Invalid or missing API key
+        '422':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+
+  # ── Withdrawals ──────────────────────────────────────────────────────────────
+
+  /withdrawals:
+    post:
+      summary: Withdraw funds from an account
+      tags: [Withdrawals]
+      security:
+        - bearerToken: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [account_id, amount]
+              properties:
+                account_id: { type: integer }
+                amount:     { type: number, format: decimal, minimum: 0.01 }
+      responses:
+        '201':
+          description: Withdrawal created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Withdrawal'
+        '401':
+          description: Invalid or missing API key
+        '422':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
