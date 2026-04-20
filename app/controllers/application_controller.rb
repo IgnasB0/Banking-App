@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   # Changes to the importmap will invalidate the etag for HTML responses
   stale_when_importmap_changes
-  
+
   protect_from_forgery with: :null_session
 
   private
@@ -16,8 +16,8 @@ class ApplicationController < ActionController::Base
       BankingFacility.find_by(api_key_digest: hashed)
     end
 
-    unless @current_banking_facility
-      render json: { error: "Unauthorized" }, status: :unauthorized
-    end
+    return if @current_banking_facility
+
+    render json: { error: "Unauthorized" }, status: :unauthorized
   end
 end

@@ -5,7 +5,7 @@ require_relative "test_helpers/session_test_helper"
 
 module ActiveSupport
   class TestCase
-    parallelize(workers: :number_of_processors)
+    parallelize(workers: 1)
     fixtures :all
   end
 end

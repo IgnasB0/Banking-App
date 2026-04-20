@@ -29,6 +29,6 @@ class AccountsController < ApplicationController
   private
 
   def account_params
-    params.expect(account: [ :first_name, :last_name, :country_code ])
+    params.expect(account: %i[first_name last_name country_code])
   end
 end
